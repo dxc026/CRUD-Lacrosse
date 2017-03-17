@@ -17,6 +17,16 @@
     <th>School</th>
   </tr>
 <h1>Charlotte Hounds Fantasy Team</h1>
+<br/>
+<br/>
+
+<div>
+<form>
+<input type="submit" name="Edit" value="Edit">
+<input type="submit" name="Delete" value="Delete Selected Items">
+</form>
+</div>
+
 <c:forEach items="${playerList}" var="team">
   <tr >
 <td><input type="checkbox" name="name" /></td>
@@ -37,6 +47,16 @@
 </div>
 <br/>
 <br/>
+
+<form>
+<h3>Add a Free Agent</h3>
+<br/>
+<label>Number<input type="text" /></label>
+<label>Name<input type="text" /></label>
+<label>Position<input type="text" /></label>
+<label>School<input type="text" /></label>
+<input class="sumbit" type="submit" name="add" value="Add Free Agent"/>
+</form>
 
 </div>
 </body>
