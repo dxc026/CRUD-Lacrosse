@@ -8,6 +8,6 @@ public interface LacrosseFantasyDAO {
 	public Player getPlayerByNumber(int playerNum);
 	public Player getPlayerByPosition(String position);
 	public List<Player> getPlayers();
-	
+	public void removePlayer();
 
 }

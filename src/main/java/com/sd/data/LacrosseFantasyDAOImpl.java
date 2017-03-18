@@ -103,5 +103,15 @@ public class LacrosseFantasyDAOImpl implements LacrosseFantasyDAO{
 		return players;
 		
 	}
-
+	@Override
+    public void removePlayer() {
+        int index = 0;
+            for (Beer beer2 : beers) {
+                if(beer2.getName().equals(name)){
+                    index = beers.indexOf(beer2);
+                    break;
+                }
+            }
+        beers.remove(index);
+    }
 }
