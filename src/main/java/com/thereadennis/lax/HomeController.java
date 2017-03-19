@@ -11,9 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sd.data.LacrosseFantasyDAO;
+import com.sd.data.Player;
 
 /**
  * Handles requests for the application home page.
@@ -51,15 +53,52 @@ public class HomeController {
 		mv.addObject("playerList", lacrosseDao.getPlayers());
 		return mv;
 	}
-//	@RequestMapping(value = "CreateNew.do", params={}, method = RequestMethod.GET)
-//	public ModelAndView createNew() {
-//		
-//		Pl
-//		
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("home");
-//		mv.addObject("playerList", lacrosseDao.getPlayers());
-//		return mv;
-//	}
-//	
+	
+	@RequestMapping(value = "GetInfo.do", params="name", method = RequestMethod.GET)
+	public ModelAndView getPlayerByName(@RequestParam("name") String n) {
+		System.out.println("test");
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("home");
+		mv.addObject("player", lacrosseDao.getPlayerByName(n));
+		return mv;
+	}
+	@RequestMapping(value = "CreateNew.do", method = RequestMethod.GET)
+	public ModelAndView createNew(Player player) {
+		lacrosseDao.addFreeAgent(player);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("home");
+		mv.addObject("player", new Player());
+		mv.addObject("playerList", lacrosseDao.getPlayers());
+		return mv;
+	}
+	@RequestMapping(value = "delete.do", method = RequestMethod.GET)
+	public ModelAndView delete(@RequestParam("Delete") String playerName) {
+		lacrosseDao.removePlayer(playerName);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("home");
+		mv.addObject("playerList", lacrosseDao.getPlayers());
+		return mv;
+	}
+	@RequestMapping(value = "editPlayer.do", method = RequestMethod.GET)
+	public ModelAndView editPlayer(@RequestParam("Edit") String playerName) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("home");
+		mv.addObject("playerList", lacrosseDao.getPlayers());
+		mv.addObject("player", lacrosseDao.getPlayerByName(playerName));
+		return mv;
+	}
+	@RequestMapping(value = "edit.do", method = RequestMethod.GET)
+	public ModelAndView edit(Player player) {
+		System.out.println(player);
+		lacrosseDao.editPlayer(player);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("home");
+		mv.addObject("playerList", lacrosseDao.getPlayers());
+		mv.addObject("player", new Player());
+		return mv;
+	}
+	
+	
+	
 }

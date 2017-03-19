@@ -6,6 +6,8 @@ public class Player {
 	private String position;
 	private String school;
 	
+	public Player(){}
+	
 	public Player(int playerNum, String playerName, String position, String school) {
 		
 		this.playerNum = playerNum;

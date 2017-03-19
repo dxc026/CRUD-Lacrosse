@@ -20,22 +20,46 @@
 				<br />
 				<br />
 
-				<div>
+			<!-- 	<div>
 					<form>
 						<input type="submit" name="Edit" value="Edit"> <input
 							type="submit" name="Delete" value="Delete Selected Items">
 					</form>
-				</div>
+				</div> -->
 
 				<c:forEach items="${playerList}" var="team">
+				<c:if test="${team.playerName!=player.playerName }">
+					${player.playerName }
 					<tr>
-						<td><input type="checkbox" name="name" /></td>
+						<td><input type="radio" name="name" value="${ team.playerName}"/></td>
 						<td>${ team.playerNum}</td>
 						<td>${ team.playerName}</td>
 						<td>${ team.position}</td>
 						<td>${ team.school}</td>
+					<td><form action="editPlayer.do">
+						<button type="submit" name="Edit" value="${ team.playerName}"> Edit </button> 
+					</form></td>
+					<td><form action="delete.do">
+						<button
+							type="submit" name="Delete" value="${ team.playerName}"> Delete Selected Items</button>
+					</form></td>
 					</tr>
-
+					</c:if>
+					<form action="edit.do">
+				<c:if test="${team.playerName==player.playerName}">
+				
+					<tr>
+						<td><input type="hidden" name="playerNum" value="${ team.playerNum}" /></td>
+						<td><input type="text" name="playerName" value="${ team.playerName}" /></td>
+						<td><input type="text" name="position" value="${ team.position}" /></td>
+						<td><input type="text" name="school" value="${ team.school}" /></td>
+					<td>
+						<button type="submit" name="Edit" value="${ team.playerName}"> Edit </button> 
+					</td>
+					
+					</tr>
+					</c:if>
+					</form>
 					<%-- 
 <p>${ team.playerNum}
 	${ team.playerNum}
@@ -47,11 +71,13 @@
 		</div>
 		<br /> <br />
 
-		<form>
+		<form action="CreateNew.do">
 			<h3>Add a Free Agent</h3>
-			<br /> <label>Number<input type="text" /></label> <label>Name<input
-				type="text" /></label> <label>Position<input type="text" /></label> <label>School<input
-				type="text" /></label> <input class="sumbit" type="submit" name="add"
+			<br /> 
+			
+			<label>Number<input type="text" name="playerNum"/></label> <label>Name<input
+				type="text" name="playerName"/></label> <label>Position<input type="text" name="position"/></label> <label>School<input
+				type="text" name="school"/></label> <input class="sumbit" type="submit" name="add"
 				value="Add Free Agent" />
 		</form>
 

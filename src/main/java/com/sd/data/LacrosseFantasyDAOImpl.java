@@ -61,6 +61,17 @@ public class LacrosseFantasyDAOImpl implements LacrosseFantasyDAO{
 		players.add(player);
 		
 	}
+	
+	@Override
+	public void removePlayer(String name) {
+		int index = 0;
+		for (Player player : players) {
+			if(player.getPlayerName().equals(name)){
+				index = players.indexOf(player);
+			}
+		}
+		players.remove(index);
+	}
 
 	@Override
 	public Player getPlayerByName(String name) {
@@ -97,21 +108,35 @@ public class LacrosseFantasyDAOImpl implements LacrosseFantasyDAO{
 		}
 		return p;		
 	}
+	
+	@Override
+	public Player editPlayer(Player player) {
+		Player p = null;
+		int index = 0;
+		for (Player pl : players) {
+			System.out.println("in for");
+			if (pl.getPlayerNum()==player.getPlayerNum()) {
+				
+				System.out.println("test" + player.getPlayerNum());
+				p = pl;
+				index = players.indexOf(pl);
+				break;
+			}
+		}
+		p.setPlayerName(player.getPlayerName());
+		p.setPlayerNum(player.getPlayerNum());
+		p.setPosition(player.getPosition());
+		p.setSchool(player.getSchool());
+		players.set(index, p);
+		return p;		
+	}
 
 	@Override
 	public List<Player> getPlayers() {
 		return players;
 		
 	}
-	@Override
-    public void removePlayer() {
-        int index = 0;
-            for (Beer beer2 : beers) {
-                if(beer2.getName().equals(name)){
-                    index = beers.indexOf(beer2);
-                    break;
-                }
-            }
-        beers.remove(index);
-    }
+
+        
+    
 }
