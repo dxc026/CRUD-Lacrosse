@@ -1,8 +1,8 @@
-#<h1>CRUD-Lacrosse<h1>
+#<h1>CRUD-Lacrosse</h1>
 
 <h4> by: Dennis Carrasquillo</h4>
 
-#<h1>Summary<h1>
+#<h1>Summary</h1>
 <p>A fantasy lacrosse team management tool made with Java and the Spring MVC framework with CRUD functionality. When using this application you will be able to delete players from the roster using delete buttons. You can edit players as well using the edit button.To add a player to the roster, there are pre-made fields that prompt you for information and allow you to submit the information using a button. The application will then take the information and display the new player on the list.</p>
 
 <h2> Future Goals</h2>
