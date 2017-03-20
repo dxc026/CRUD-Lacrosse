@@ -11,6 +11,5 @@
 <h2>Trials and Tribulations</h2>
 <p>One thing that I had trouble with was with the edit method. When it was first created, it allowed me to edit it just fine but it wouldn't save the changes. With some help I was able to get it to work by creating another edit method that created a new player object based on the changes made from the first edit method. Another thing that I had trouble with was formatting the JSP with CSS. To get everything to work, I had to move the images to a separate file and enclose everything in different div tags.</p>
 
-<p align="center">
-<img src="webapp/images/crudlax.png">
-<img src="webapp/images/addinglax.png"></p>
+![alt text](crudlax.png "CRUD Lacrosse")
+![alt text](addinglax.png "Add Free Agent")
