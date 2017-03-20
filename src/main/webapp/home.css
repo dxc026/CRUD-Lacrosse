@@ -4,7 +4,35 @@ table{
 	font-weight: bold;
 	
 }
-/* .image{
+.image{
 	  background-image: url("images/field.jpg");
 	  background-size:cover;
-} */
+	  text-align:center;
+	  color:royal;
+} 
+
+.wrapper{
+	text-align: center;
+	margin-left: 30%;
+	width: 50%;
+	color: blue;
+}
+
+.addForm{
+	text-align: center;
+	margin-bottom: 50%;
+	width: 50%;
+	
+}
+
+th{
+	
+	color: gold;
+}
+label{
+	color: gold;
+}
+
+td{
+	color: blue;
+}
